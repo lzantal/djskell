@@ -1,4 +1,4 @@
 djskell
 =======
 
-simple dj skeleton for 1.7+
+simple dj skeleton for 1.8+
