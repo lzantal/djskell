@@ -11,10 +11,14 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+APPS_DIR = os.path.join(BASE_DIR, 'apps')
 
+# Insert apps package in sys.path to make all the apps available directly
+sys.path.insert(0, APPS_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -24,6 +28,9 @@ SECRET_KEY = '{{secret_key}}'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# If set to True it will load all static files in static and media folders
+SERVE_STATIC = DEBUG
 
 ALLOWED_HOSTS = []
 
