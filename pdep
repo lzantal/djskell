@@ -1,0 +1,56 @@
+#!/bin/bash
+
+OPTIONARG=$1;
+
+function dodeploy(){
+    case "$OPTIONARG" in
+        'full')
+            echo "Pulling from main repo..."
+            git pull
+            echo "Done"
+            python manage.py migrate
+            echo "Done"
+            echo "Collecting static files..."
+            python manage.py collectstatic
+            echo "Done"
+            echo "Restarting server..."
+            touch {{project_name}}/wsgi.py
+            echo "Done"
+        ;;
+        'app')
+            echo "Pulling from main repo..."
+            git pull
+            echo "Done"
+            echo "Updating Apps..."
+            python manage.py collectstatic
+            echo "Done"
+        ;;
+        'code')
+            echo "Pulling from main repo..."
+            git pull
+            echo "Done"
+            echo "Running migrations..."
+            python manage.py migrate
+            echo "Done"
+            echo "Restarting server..."
+            touch {{project_name}}/wsgi.py
+            echo "Done"
+        ;;
+        'rs')
+            echo "Restarting server..."
+            touch {{project_name}}/wsgi.py
+            echo "Done"
+        ;;
+        *)
+        echo "Usage: projdeploy option"
+        echo "Options:"
+        echo "        full -> Updates local repo, Collects static files, Restarts the server."
+        echo "        app  -> Updates local repo, Collects static files."
+        echo "        code -> Updates local repo, Restarts the server."
+        echo "        rs   -> Restarts the server."
+        ;;
+    esac
+    echo "Operation ended!"
+}
+
+dodeploy;

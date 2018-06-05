@@ -1,0 +1,13 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  padding-top: 60px; /* this is for the top navigation bar */
+}
+#pagecontainer {
+    min-height: 100px;
+}
+#footer {
+
+}

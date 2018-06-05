@@ -1,0 +1,11 @@
+# most basic packages for any django project
+Django
+django-grappelli
+django-localflavor
+django-filebrowser
+requests
+#mysqlclient
+#Pillow
+#hg+https://bitbucket.org/lzantal/imgthumb/#egg=imgthumb
+# for development
+#django-sslserver

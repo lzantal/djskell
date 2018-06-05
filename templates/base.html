@@ -1,0 +1,93 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>{% block pagetitle %}{% endblock %} DJSkell</title>
+    
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    
+    <style type="text/css">
+      /* just some simple bootstrap overwrites, these removes the gap between the container and the bottom of the toolbar */
+      @media (min-width: 768px) and (max-width: 979px) {
+        body {
+          padding-top: 0;
+        }        
+      }
+      @media (max-width: 979px) {
+        .navbar-fixed-top {
+          margin-bottom: 0;
+        }
+      }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    
+    <script src="{% static 'js/activenav.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
+    <div class="container">
+        <a class="navbar-brand" href="/">DJSkell</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+            </ul>
+            {% if request.user.is_authenticated %}
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" id="logoutlink" href="">
+                        <i class="fas fa-sign-out-alt"></i> Log out</a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    </nav>
+
+    {% block abovecontainer %}{% endblock %}
+
+    <div class="container" id="pagecontainer">
+        <div class="row">
+            <div class="col">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </div><!-- end outer .container -->      
+    
+    {% block belowcontainer %}{% endblock %}
+    
+    <div class="container">
+        <div class="row">        
+            <div id="footer">
+                <!-- <p>&copy; All Rights Reserved <br/></p> -->
+                <!--<p><a href="http://www.antalconsulting.com/" target="_blank">Powered by Antal Consulting, Inc</a><br/></p>-->
+            </div>     
+        </div>
+    </div>
+
+</body>
+</html>
