@@ -1,9 +1,10 @@
-# most basic packages for any django project
+# basic packages for django project
 Django
 django-grappelli
 django-localflavor
 django-filebrowser
 requests
+# helpers for image and mysql
 #mysqlclient
 #Pillow
 #hg+https://bitbucket.org/lzantal/imgthumb/#egg=imgthumb
