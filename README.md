@@ -2,7 +2,7 @@ DJSkell
 =======
 
 Django Skeleton project template for Django 2.0+  
-Includes bootstrap 4, jQuery 3, pre-configured settings.py for project layout.
+Includes bootstrap 4, jQuery 3, fontawesome, pre-configured settings.py for project layout. Main base.html template coded for bootstrap 4 and ready to be extended for your apps.
 
 ## Usage
 
