@@ -1,9 +1,12 @@
 #!/bin/bash
+: 'License
+License LZAntal <LZAntal@gmail.com>
+All Rights Reserved (c)
+You may not use or modify without written permission
+'
 
-OPTIONARG=$1;
-
-function dodeploy(){
-    case "$OPTIONARG" in
+dodeploy(){
+    case "$1" in
         'full')
             echo "Pulling from main repo..."
             git pull
@@ -53,4 +56,4 @@ function dodeploy(){
     echo "Operation ended!"
 }
 
-dodeploy;
+dodeploy "$@"
