@@ -1,3 +1,31 @@
 #!/bin/bash
+: 'License
+License LZAntal <LZAntal@gmail.com>
+All Rights Reserved (c)
+You may not use or modify without written permission
+'
 
-source ../{{project_name}}-env/bin/activate
+: 'Docs
+Activate virtualenv by running this with
+$ . aenv
+If virtualenv does not exists at the path defined in envdir it will ask to create it.
+Update envdir variable below to point to the folder containing your virtualenv
+'
+# change this to your path to virtualenv directory
+envdir="../{{project_name}}-env"
+
+# credit for my bashlib.sh on how to check for directory
+if [[ -d $envdir ]]; then
+    source $envdir/bin/activate
+else
+    echo "Virtualenviroment '$envdir' does not exists!"
+    read -p "Do you want to create it? [y/n]: " cenv
+    if [[ $cenv = [nN] ]]; then
+        echo "Bye."
+        return 1
+    fi
+    echo "Creating virtualenviroment $envdir"
+    virtualenv -p python3 $envdir
+    echo "Activating $envdir"
+    source $envdir/bin/activate
+fi
