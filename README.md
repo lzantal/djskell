@@ -24,16 +24,17 @@ Above will use DJSkell template to create a new django project. It also has two 
 ```
 
 ### aenv
-aenv helps activating the project's virtualenv. It expects the virtualenv to live next to the project with the same name as the project and the '-env'.
+Helper script to activate the project's virtualenv. If the virtualenv doesnt exists yet it will ask you to create it. 
+It expects the virtualenv to live next to the project with the same name as the project and the '-env'.
 Eg: if you named your project djproj then the virtualenv name should be djproj-env
-
+If you have your virtualenv located anywhere else just open aenv and update the 'envdir' variable.
 Usage
 ```
 $ . aenv
 ```
 
 ### pdep
-pdep helps with pulling, updating your project from a git repo and running the usual migrate, collect static and restarting the webserver.
+Helper script for pulling, updating your project from a git repo and running the usual migrate, collect static and restarting the webserver.
 To see available options run
 ```
 $ . pdep
