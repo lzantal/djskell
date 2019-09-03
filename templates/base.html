@@ -7,39 +7,23 @@
     
     <title>{% block pagetitle %}{% endblock %} DJSkell</title>
     
-    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- site wide css -->
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
     
-    <style type="text/css">
-      /* just some simple bootstrap overwrites, these removes the gap between the container and the bottom of the toolbar */
-      @media (min-width: 768px) and (max-width: 979px) {
-        body {
-          padding-top: 0;
-        }        
-      }
-      @media (max-width: 979px) {
-        .navbar-fixed-top {
-          margin-bottom: 0;
-        }
-      }
-    </style>
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="{% static 'jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    
+    <!-- jquery, popper, bootstrap js -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- site wide auto select active navigation, site wide js-->
     <script src="{% static 'js/activenav.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 
+    <!-- fontawesome css -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
+    <!-- <head> extension point -->
     {% block extrahead %}{% endblock %}
 </head>
 <body>
@@ -51,8 +35,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#link1">Link1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#link2">Link2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#link3">Link3</a>
                 </li>
             </ul>
             {% if request.user.is_authenticated %}
@@ -66,7 +59,7 @@
         </div>
     </div>
     </nav>
-
+    <!-- above main content extension point -->
     {% block abovecontainer %}{% endblock %}
 
     <div class="container" id="pagecontainer">
@@ -78,13 +71,16 @@
         </div>
     </div><!-- end outer .container -->      
     
+    <!-- below main content extension point -->
     {% block belowcontainer %}{% endblock %}
     
     <div class="container">
         <div class="row">        
             <div id="footer">
-                <!-- <p>&copy; All Rights Reserved <br/></p> -->
-                <!--<p><a href="http://www.antalconsulting.com/" target="_blank">Powered by Antal Consulting, Inc</a><br/></p>-->
+                <p>
+                    &copy; All Rights Reserved 
+                    <a href="https://github.com/lzantal/djskell" target="_blank">Powered by DJSkell</a>
+                </p>
             </div>     
         </div>
     </div>
